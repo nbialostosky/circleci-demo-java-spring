@@ -46,7 +46,7 @@ jobs:
       - attach_workspace:
           at: .
       - run: |
-          ./gradlew check -i -PtestFilter="`circleci tests glob "**/*.java" | circleci tests split --split-by=timings`"
+          ./gradlew check -i -PtestFilter="`circleci tests glob "src/test/**/*.java" | circleci tests split --split-by=timings`"
       #- run:
           #name: Run tests in parallel
           # Use "./gradlew test" instead if tests are not run in parallel
