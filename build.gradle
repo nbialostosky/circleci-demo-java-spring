@@ -61,6 +61,15 @@ buildScan {
     publishAlways()
 }
 
+integrationTest {
+  if (project.hasProperty("testFilter")) {
+    List<String> props = project.getProperties().get("testFilter").split("\\s+")
+    props.each {
+      include(it.replace("src/test/", "**/").replace(".java", ".class"))
+    }
+  }
+}
+
 // Based on the guide here: https://github.com/codecov/example-gradle
 jacocoTestReport {
     reports {
