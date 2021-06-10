@@ -52,7 +52,7 @@ task bootRunDev(type: org.springframework.boot.gradle.tasks.run.BootRun) {
     }
 }
 
-integrationTest {
+task integrationTest {
   if (project.hasProperty('testFilter')) {
     List<String> props = project.getProperties().get('testFilter').split('\\s+')
     props.each {
