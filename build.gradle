@@ -53,10 +53,10 @@ task bootRunDev(type: org.springframework.boot.gradle.tasks.run.BootRun) {
 }
 
 integrationTest {
-  if (project.hasProperty("testFilter")) {
-    List<String> props = project.getProperties().get("testFilter").split("\\s+")
+  if (project.hasProperty('testFilter')) {
+    List<String> props = project.getProperties().get('testFilter').split('\\s+')
     props.each {
-      include(it.replace("src/test/", "**/").replace(".java", ".class"))
+      include(it.replace('src/test/', '**/').replace('.java', '.class'))
     }
   }
 }
@@ -79,4 +79,3 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
-check.dependsOn integrationTest
